@@ -24,4 +24,16 @@ public class User {
   public void setName(String name) {
     this.name = name;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    boolean isUserType = o instanceof User;
+    if (isUserType) {
+      User user = ((User) o);
+      boolean isEqualId = this.id == user.id;
+      boolean isEqualName = this.name.equals(user.name);
+      return isEqualId && isEqualName;
+    }
+    return isUserType;
+  }
 }
